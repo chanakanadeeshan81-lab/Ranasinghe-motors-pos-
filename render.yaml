@@ -1,0 +1,21 @@
+# Optional "Blueprint" for Render (New > Blueprint). You can also create the service by hand - see README.md.
+# Plan: Starter web service (always on) + 1 GB persistent disk, so shop data survives restarts and redeploys.
+services:
+  - type: web
+    name: ranasinghe-pos
+    runtime: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    disk:
+      name: pos-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: DATA_DIR
+        value: /var/data
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_PIN
+        sync: false

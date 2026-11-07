@@ -1,0 +1,10 @@
+{
+  "name": "ranasinghe-pos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ranasinghe Motors POS with shared cloud data",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "dependencies": { "pg": "^8.11.3" }
+}
